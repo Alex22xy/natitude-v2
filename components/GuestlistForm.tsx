@@ -6,17 +6,26 @@ export default function GuestlistForm() {
   const [name, setName] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
-    // For now, we will just simulate a 1-second save
-    // We will connect the real MongoDB "pipe" in the next step!
-    setTimeout(() => {
-      console.log("Saving name:", name);
-      setStatus('success');
-      setName('');
-    }, 1000);
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setName('');
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   return (
