@@ -20,7 +20,7 @@ export default function Home() {
 
         <div className="relative z-10 flex flex-col items-center">
           {/* LOGO: 'italic' and 'black' (extra bold) for the high-end look */}
-          <h1 className="text-lime-400 text-7xl md:text-9xl font-black uppercase italic tracking-[-0.05em] leading-none drop-shadow-[0_0_15px_rgba(163,230,53,0.3)]">
+          <h1 className="text-[#FF007F] text-7xl md:text-9xl font-black uppercase italic tracking-[-0.05em] leading-none drop-shadow-[0_0_15px_rgba(163,230,53,0.3)]">
             Natitude
           </h1>
           
