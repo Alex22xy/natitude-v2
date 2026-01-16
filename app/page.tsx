@@ -104,8 +104,38 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: TRIBE (Placeholder for the community section) */}
-      <section id="tribe" className="h-screen flex items-center justify-center bg-zinc-900/20">
-        <h2 className="text-3xl font-bold uppercase tracking-widest">The Community</h2>
+      <section id="tribe" className="min-h-screen py-20 flex flex-col items-center justify-center px-6">
+        <div className="max-w-4xl w-full">
+          {/* Header */}
+          <div className="mb-16 border-l-4 border-lime-400 pl-6">
+            <h2 className="text-lime-400 text-sm tracking-[0.5em] uppercase mb-2">The Community</h2>
+            <p className="text-5xl font-black uppercase italic tracking-tighter">The Tribe</p>
+          </div>
+
+          {/* Tribe Pillars */}
+          <div className="space-y-12">
+            <div className="flex flex-col md:flex-row justify-between items-start gap-4 pb-8 border-b border-white/10">
+              <span className="text-lime-400 font-mono text-sm">01 / CURATION</span>
+              <p className="text-zinc-400 max-w-md text-sm leading-relaxed">
+                We believe in quality over quantity. Every guest is hand-picked to ensure the energy remains unmatched.
+              </p>
+            </div>
+
+            <div className="flex flex-col md:flex-row justify-between items-start gap-4 pb-8 border-b border-white/10">
+              <span className="text-lime-400 font-mono text-sm">02 / PRIVACY</span>
+              <p className="text-zinc-400 max-w-md text-sm leading-relaxed">
+                What happens at the Ritual stays at the Ritual. No cameras, no ego, just the music and the movement.
+              </p>
+            </div>
+
+            <div className="flex flex-col md:flex-row justify-between items-start gap-4 pb-8 border-b border-white/10">
+              <span className="text-lime-400 font-mono text-sm">03 / ENERGY</span>
+              <p className="text-zinc-400 max-w-md text-sm leading-relaxed">
+                A seamless blend of House, Afrobeats, and Ritualistic rhythms designed to keep you moving until the doors lock.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );
