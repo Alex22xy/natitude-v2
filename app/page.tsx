@@ -1,5 +1,6 @@
 // Importing our custom Navbar component
 import Navbar from '../components/Navbar';
+import GuestlistForm from '../components/GuestlistForm'
 
 export default function Home() {
   return (
@@ -89,9 +90,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: JOIN (Placeholder for the form) */}
-      <section id="join" className="h-screen flex items-center justify-center border-b border-white/5">
-        <h2 className="text-3xl font-bold uppercase text-lime-400 tracking-widest">Join the Tribe</h2>
+      {/* SECTION 3: JOIN */}
+      <section id="join" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-b from-black to-zinc-950">
+        <div className="text-center mb-12">
+          <h2 className="text-lime-400 text-sm tracking-[0.5em] uppercase mb-2">Guestlist</h2>
+          <p className="text-4xl font-bold uppercase italic">Join the Tribe</p>
+          <p className="text-zinc-500 mt-4 max-w-sm text-sm">
+            Entry is not guaranteed. Members only. Register below for the Saturday Ritual.
+          </p>
+        </div>
+
+        <GuestlistForm />
       </section>
 
       {/* SECTION 4: TRIBE (Placeholder for the community section) */}
