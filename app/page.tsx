@@ -39,9 +39,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: EVENTS (Placeholder for now) */}
-      <section id="events" className="h-screen flex items-center justify-center border-b border-white/5">
-        <h2 className="text-3xl font-bold uppercase tracking-widest">Upcoming Rituals</h2>
+      {/* SECTION 2: EVENTS */}
+      <section id="events" className="min-h-screen py-20 flex flex-col items-center justify-center px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-lime-400 text-sm tracking-[0.5em] uppercase mb-2">Details</h2>
+          <p className="text-4xl font-bold uppercase italic">The Experience</p>
+        </div>
+
+        {/* Grid Container: 1 column on mobile, 3 columns on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+          
+          {/* CARD 1: LOCATION */}
+          <div className="group bg-zinc-900/40 border border-white/5 p-10 rounded-2xl hover:border-lime-400/50 transition-all duration-500">
+            <div className="w-12 h-12 bg-lime-400/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-lime-400/20 transition-colors">
+              <span className="text-lime-400 text-xl">📍</span>
+            </div>
+            <h3 className="text-xl font-bold uppercase mb-2">Location</h3>
+            <p className="text-zinc-500 text-sm leading-relaxed">
+              51 St Andrew's Street South<br />
+              Bury St Edmunds, IP33 3PH
+            </p>
+          </div>
+
+          {/* CARD 2: RITUAL (TIME) */}
+          <div className="group bg-zinc-900/40 border border-white/5 p-10 rounded-2xl hover:border-lime-400/50 transition-all duration-500 shadow-xl shadow-lime-400/5">
+            <div className="w-12 h-12 bg-lime-400/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-lime-400/20 transition-colors">
+              <span className="text-lime-400 text-xl">🕒</span>
+            </div>
+            <h3 className="text-xl font-bold uppercase mb-2">Ritual</h3>
+            <p className="text-zinc-500 text-sm leading-relaxed">
+              Doors open 10:00 PM<br />
+              Strict Entry by 11:30 PM
+            </p>
+          </div>
+
+          {/* CARD 3: THE VIBE */}
+          <div className="group bg-zinc-900/40 border border-white/5 p-10 rounded-2xl hover:border-lime-400/50 transition-all duration-500">
+            <div className="w-12 h-12 bg-lime-400/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-lime-400/20 transition-colors">
+              <span className="text-lime-400 text-xl">🎵</span>
+            </div>
+            <h3 className="text-xl font-bold uppercase mb-2">The Vibe</h3>
+            <p className="text-zinc-500 text-sm leading-relaxed">
+              Tiki Bar & Club<br />
+              House / Afrobeats / Ritual
+            </p>
+          </div>
+
+        </div>
       </section>
 
       {/* SECTION 3: JOIN (Placeholder for the form) */}
