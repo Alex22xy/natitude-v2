@@ -10,33 +10,44 @@ export default function Home() {
 {/* SECTION 1: HOME (HERO) */}
       <section id="home" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
         
-        {/* THE PINK AURA */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF007F]/20 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+        {/* THE VIDEO LAYER */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-40 grayscale contrast-125"
+          >
+            <source src="/jungle.mp4" type="video/mp4" />
+          </video>
+          {/* A dark gradient overlay so the video doesn't overwhelm the logo */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
+        </div>
+
+        {/* THE PINK AURA (Kept for that neon glow) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF007F]/20 rounded-full blur-[120px] pointer-events-none animate-pulse z-1" />
 
         <div className="relative z-10 flex flex-col items-center">
-          
           {/* THE SVG LOGO */}
-          <div className="relative">
-            <img 
-              src="/logo.svg" 
-              alt="Natitude Welcome to the Jungle" 
-              className="w-80 md:w-[550px] h-auto drop-shadow-[0_0_30px_rgba(255,0,127,0.5)] transition-all duration-700 hover:scale-105"
-            />
-          </div>
+          <img 
+            src="/logo.svg" 
+            alt="Natitude Logo" 
+            className="w-80 md:w-[550px] h-auto drop-shadow-[0_0_40px_rgba(255,0,127,0.6)] transition-all duration-700 hover:scale-105"
+          />
           
-          {/* LOGO SUBTEXT */}
           <div className="flex items-center gap-6 mt-2">
-            <div className="h-[1px] w-20 bg-gradient-to-r from-transparent to-[#FF007F]/50" />
+            <div className="h-[1px] w-20 bg-[#FF007F]/40" />
             <p className="text-white tracking-[0.8em] uppercase text-[10px] md:text-xs font-light">
               Welcome to the Jungle
             </p>
-            <div className="h-[1px] w-20 bg-gradient-to-l from-transparent to-[#FF007F]/50" />
+            <div className="h-[1px] w-20 bg-[#FF007F]/40" />
           </div>
         </div>
 
         {/* ENTER THE JUNGLE HINT */}
-        <div className="absolute bottom-12 flex flex-col items-center gap-4 opacity-40 hover:opacity-100 transition-opacity">
-           <p className="text-[10px] tracking-[0.5em] text-[#FF007F] uppercase font-bold">Enter the Jungle</p>
+        <div className="absolute bottom-12 flex flex-col items-center gap-4 z-10">
+           <p className="text-[10px] tracking-[0.5em] text-[#FF007F] uppercase font-bold animate-pulse">Enter the Jungle</p>
            <div className="w-[1px] h-16 bg-gradient-to-b from-[#FF007F] to-transparent" />
         </div>
       </section>
