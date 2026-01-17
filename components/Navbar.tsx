@@ -1,26 +1,12 @@
-"use client";
-import { Home, Calendar, Ticket, Users } from 'lucide-react';
-
 export default function Navbar() {
-  const navItems = [
-    { name: 'Home', href: '#home', icon: Home },
-    { name: 'Events', href: '#events', icon: Calendar },
-    { name: 'Join', href: '#join', icon: Ticket },
-    { name: 'Tribe', href: '#tribe', icon: Users },
-  ];
-
   return (
-    <nav className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[9999] bg-black/80 backdrop-blur-md border border-white/10 px-6 py-3 rounded-full flex gap-8 shadow-2xl">
-      {navItems.map((item) => (
-        <a 
-          key={item.name}
-          href={item.href} 
-          className="group flex flex-col items-center gap-1 text-gray-400 hover:text-[#FF007F] transition-all duration-300"
-        >
-          <item.icon size={20} className="group-hover:scale-110 transition-transform" />
-          <span className="text-[10px] uppercase font-bold tracking-widest">{item.name}</span>
-        </a>
-      ))}
+    <nav className="fixed top-0 w-full z-50 p-6 flex justify-between items-center bg-gradient-to-b from-black to-transparent">
+      <div className="text-[#FF007F] font-black italic tracking-tighter text-xl">NATITUDE</div>
+      <div className="flex gap-6 text-[10px] uppercase tracking-[0.3em] font-bold">
+        <a href="#home" className="hover:text-[#FF007F] transition-colors">Home</a>
+        <a href="#events" className="hover:text-[#FF007F] transition-colors">Ritual</a>
+        <a href="#join" className="hover:text-[#FF007F] transition-colors">Join</a>
+      </div>
     </nav>
   );
 }
