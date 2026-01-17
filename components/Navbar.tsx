@@ -1,14 +1,6 @@
 export default function Navbar() {
   return (
     <>
-      {/* SECRET ADMIN TRIGGER - Top Right Corner */}
-      <a 
-        href="/admin" 
-        className="fixed top-6 right-6 z-[60] w-8 h-8 flex items-center justify-center opacity-20 hover:opacity-100 transition-opacity group"
-      >
-        <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-[#FF007F] group-hover:shadow-[0_0_10px_#FF007F]" />
-      </a>
-
       {/* MAIN NAVIGATION DOCK */}
       <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full px-4 max-w-[450px]">
         <div className="bg-black/80 backdrop-blur-xl border border-white/5 px-6 py-3 rounded-[32px] flex justify-between items-center shadow-2xl">
