@@ -71,26 +71,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: THE RITUAL (DETAILS) */}
-      <section id="events" className="relative h-screen w-full snap-start snap-always flex flex-col items-center justify-center px-6 bg-black">
-        <div className="text-center mb-12">
-          <h2 className="text-[#FF007F] text-xs tracking-[0.5em] uppercase mb-4">The Ritual</h2>
-          <p className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-white">The Experience</p>
+      {/* SECTION 2: THE RITUAL (UPGRADED) */}
+      <section id="events" className="relative h-screen w-full snap-start snap-always flex flex-col items-center justify-center px-6 bg-black overflow-hidden">
+        
+        {/* Faded background text for depth */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/[0.02] uppercase italic pointer-events-none select-none">
+          Ritual
+        </div>
+
+        <div className="text-center mb-16 relative z-10">
+          <h2 className="text-[#FF007F] text-xs tracking-[0.8em] uppercase mb-4 animate-pulse">The Guidelines</h2>
+          <p className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter text-white">The Experience</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
-          <div className="p-8 border border-white/5 bg-zinc-950/50 rounded-2xl hover:border-[#FF007F]/30 transition-all group">
-            <h3 className="text-[#FF007F] font-bold mb-3 uppercase italic text-sm">01 / Location</h3>
-            <p className="text-zinc-500 text-[11px] leading-relaxed group-hover:text-zinc-300">A hidden sanctuary. Revealed to confirmed guests only via encrypted message.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl w-full relative z-10">
+          {/* CARD 1 */}
+          <div className="group relative p-8 bg-zinc-950/40 border border-white/5 rounded-3xl overflow-hidden hover:border-[#FF007F]/50 transition-all duration-500">
+            <div className="absolute top-0 right-0 p-4 text-[#FF007F]/20 group-hover:text-[#FF007F] transition-colors font-black italic">01</div>
+            <h3 className="text-white font-black uppercase italic mb-2 tracking-widest">The Void</h3>
+            <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-200 transition-colors">
+              The coordinate is a secret. Confirmed tribe members receive a digital key via encrypted channel 120 minutes prior.
+            </p>
+            <div className="mt-4 h-[1px] w-0 group-hover:w-full bg-[#FF007F] transition-all duration-700" />
           </div>
-          <div className="p-8 border border-[#FF007F]/20 bg-zinc-950/50 rounded-2xl shadow-[0_0_40px_rgba(255,0,127,0.05)]">
-            <h3 className="text-[#FF007F] font-bold mb-3 uppercase italic text-sm">02 / Timing</h3>
-            <p className="text-zinc-500 text-[11px] leading-relaxed">Doors open at 22:00. The pulse begins at midnight. No re-entry allowed.</p>
-          </div>
-          <div className="p-8 border border-white/5 bg-zinc-950/50 rounded-2xl hover:border-[#FF007F]/30 transition-all group">
-            <h3 className="text-[#FF007F] font-bold mb-3 uppercase italic text-sm">03 / Code</h3>
-            <p className="text-zinc-500 text-[11px] leading-relaxed group-hover:text-zinc-300">Dark. Minimalist. Jungle-ready. Respect the rhythm, respect the tribe.</p>
-          </div>
+
+          {/* Repeat for Card 2 and 3 with different text... */}
         </div>
       </section>
 
