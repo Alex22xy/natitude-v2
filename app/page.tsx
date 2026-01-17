@@ -87,13 +87,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: THE LIST (JOIN) */}
-      <section id="join" className="relative h-screen w-full snap-start snap-always flex flex-col items-center justify-center px-6 bg-zinc-950">
+     {/* SECTION 3: THE LIST (JOIN) */}
+      <section id="join" className="relative h-screen w-full snap-start snap-always flex flex-col items-center justify-center px-6 bg-black">
         <div className="text-center mb-10">
-          <h2 className="text-[#FF007F] text-xs tracking-[0.5em] uppercase mb-4">Access</h2>
-          <p className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter">Join the Tribe</p>
+          <h2 className="text-[#FF007F] text-xs tracking-[0.5em] uppercase mb-4">The List</h2>
+          <p className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter text-white">Join the Tribe</p>
         </div>
-        <div className="w-full max-w-md pb-20"> {/* pb-20 prevents the form from being hidden by the dock */}
+        <div className="w-full max-w-md pb-32"> {/* Increased padding to clear the dock */}
           <GuestlistForm />
         </div>
 
