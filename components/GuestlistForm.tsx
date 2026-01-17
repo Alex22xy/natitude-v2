@@ -43,30 +43,45 @@ export default function GuestlistForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <input
-        name="name"
-        type="text"
-        placeholder="FULL NAME"
-        required
-        className="bg-transparent border border-white/10 p-4 text-white placeholder:text-zinc-700 focus:border-[#FF007F] outline-none transition-all uppercase tracking-widest text-xs"
-      />
-      <input
-        name="email"
-        type="email"
-        placeholder="EMAIL ADDRESS"
-        required
-        className="bg-transparent border border-white/10 p-4 text-white placeholder:text-zinc-700 focus:border-[#FF007F] outline-none transition-all uppercase tracking-widest text-xs"
-      />
-      <button
-        type="submit"
-        disabled={status === 'loading'}
-        className="bg-[#FF007F] text-white font-black italic p-4 uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all disabled:opacity-50"
-      >
-        {status === 'loading' ? 'Processing...' : 'Request Access'}
-      </button>
-      {status === 'error' && (
-        <p className="text-red-500 text-[10px] uppercase text-center mt-2">System Error. Try again.</p>
-      )}
-    </form>
+  {/* FULL NAME */}
+  <input
+    name="name"
+    type="text"
+    placeholder="FULL NAME"
+    required
+    className="bg-zinc-900/50 border border-white/5 p-4 text-white placeholder:text-zinc-800 focus:border-[#FF007F] outline-none transition-all uppercase tracking-widest text-xs rounded-xl"
+  />
+
+  {/* SOCIAL HANDLE - The Vetting Tool */}
+  <input
+    name="handle"
+    type="text"
+    placeholder="INSTAGRAM @HANDLE"
+    required
+    className="bg-zinc-900/50 border border-white/5 p-4 text-white placeholder:text-zinc-800 focus:border-[#FF007F] outline-none transition-all uppercase tracking-widest text-xs rounded-xl italic"
+  />
+
+  {/* EMAIL ADDRESS */}
+  <input
+    name="email"
+    type="email"
+    placeholder="EMAIL ADDRESS"
+    required
+    className="bg-zinc-900/50 border border-white/5 p-4 text-white placeholder:text-zinc-800 focus:border-[#FF007F] outline-none transition-all uppercase tracking-widest text-xs rounded-xl"
+  />
+
+  {/* SUBMIT BUTTON */}
+  <button
+    type="submit"
+    disabled={status === 'loading'}
+    className="bg-[#FF007F] text-white font-black italic p-5 uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all disabled:opacity-50 rounded-xl shadow-[0_0_20px_rgba(255,0,127,0.3)]"
+  >
+    {status === 'loading' ? 'Encrypting...' : 'Request Access'}
+  </button>
+
+  {status === 'error' && (
+    <p className="text-red-500 text-[10px] uppercase text-center mt-2 font-bold tracking-tighter">Access Denied. Try again.</p>
+  )}
+</form>
   );
 }
