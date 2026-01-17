@@ -1,67 +1,59 @@
 "use client";
 
-import dynamic from 'next/dynamic';
-import Navbar from '../components/Navbar';
-import GuestlistForm from '../components/GuestlistForm';
+import { useEffect, useState } from 'react';
 
-// Load Countdown only on client to avoid hydration errors
-const Countdown = dynamic(() => import('../components/Countdown'), { 
-  ssr: false,
-  loading: () => <div className="h-24" /> 
-});
+export default function AdminPage() {
+  const [guests, setGuests] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-export default function Home() {
+  useEffect(() => {
+    fetch('/api/register') // Assuming your GET route is here
+      .then(res => res.json())
+      .then(data => {
+        setGuests(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
   return (
-    <main className="relative bg-black text-white selection:bg-[#FF007F] selection:text-white">
-      <Navbar />
-
-      {/* SECTION 1: HERO - THE VIBE */}
-      <section id="home" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
-        
-        {/* BACKGROUND VIDEO */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-30 grayscale contrast-125"
-          >
-            <source src="/jungle.mp4" type="video/mp4" />
-          </video>
-          {/* VIGNETTE OVERLAY */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black" />
-        </div>
-
-        {/* NEON CORE GLOW */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#FF007F]/10 rounded-full blur-[120px] pointer-events-none animate-pulse z-0" />
-
-        <div className="relative z-10 flex flex-col items-center px-6">
-          <img 
-            src="/logo.svg" 
-            alt="Natitude Logo" 
-            className="w-64 md:w-[500px] h-auto drop-shadow-[0_0_30px_rgba(255,0,127,0.4)] mb-6"
-          />
-          
-          <div className="flex items-center gap-6 mb-10">
-            <div className="h-[1px] w-12 bg-[#FF007F]/40" />
-            <p className="text-white tracking-[0.8em] uppercase text-[10px] md:text-xs font-light">
-              Welcome to the Jungle
-            </p>
-            <div className="h-[1px] w-12 bg-[#FF007F]/40" />
+    <div className="min-h-screen bg-black text-white p-8 font-sans">
+      <div className="max-w-4xl mx-auto">
+        <header className="flex justify-between items-end mb-12 border-b border-[#FF007F]/30 pb-6">
+          <div>
+            <h1 className="text-[#FF007F] text-xs tracking-[0.5em] uppercase mb-2">Command Center</h1>
+            <p className="text-4xl font-black italic uppercase tracking-tighter">Guestlist Archive</p>
           </div>
+          <p className="text-zinc-500 text-[10px] uppercase tracking-widest">{guests.length} Confirmed</p>
+        </header>
 
-          <Countdown />
-        </div>
-
-        {/* SCROLL INDICATOR */}
-        <div className="absolute bottom-10 flex flex-col items-center gap-4 z-10">
-           <p className="text-[10px] tracking-[0.5em] text-[#FF007F] uppercase font-bold animate-pulse">Enter the Jungle</p>
-           <div className="w-[1px] h-12 bg-gradient-to-b from-[#FF007F] to-transparent" />
-        </div>
-      </section>
-
-      {/* SECTION 2: THE EXPERIENCE */}
-      <section id="events" className="min-h-screen py-32 flex flex-col items-center justify-center px-6 bg-black border-y border-white/5">
-        <div className="text-center mb-20 max-w-2xl">
-          <h2 className="text-[#FF007F] text-sm tracking-[0.5em] uppercase mb-4">
+        {loading ? (
+          <p className="text-[#FF007F] animate-pulse uppercase tracking-widest text-xs">Accessing Database...</p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-white/10 text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+                  <th className="py-4 px-2">Name</th>
+                  <th className="py-4 px-2">Email</th>
+                  <th className="py-4 px-2 text-right">Date Joined</th>
+                </tr>
+              </thead>
+              <tbody>
+                {guests.map((guest: any, i) => (
+                  <tr key={i} className="border-b border-white/5 hover:bg-[#FF007F]/5 transition-colors group">
+                    <td className="py-4 px-2 font-bold uppercase italic text-sm tracking-tight group-hover:text-[#FF007F]">{guest.name}</td>
+                    <td className="py-4 px-2 text-zinc-400 font-mono text-xs">{guest.email}</td>
+                    <td className="py-4 px-2 text-zinc-600 text-[10px] text-right">
+                      {new Date(guest.createdAt).toLocaleDateString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
