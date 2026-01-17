@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import GuestlistForm from '../components/GuestlistForm';
+import COuntdown from '.../components/Countdown';
 
 export default function Home() {
   return (
@@ -37,13 +38,15 @@ export default function Home() {
           />
           
           <div className="flex items-center gap-6 mt-2">
-            <div className="h-[1px] w-20 bg-[#FF007F]/40" />
-            <p className="text-white tracking-[0.8em] uppercase text-[10px] md:text-xs font-light">
-              Welcome to the Jungle
-            </p>
-            <div className="h-[1px] w-20 bg-[#FF007F]/40" />
-          </div>
+          <div className="h-[1px] w-20 bg-[#FF007F]/40" />
+          <p className="text-white tracking-[0.8em] uppercase text-[10px] md:text-xs font-light">
+            Welcome to the Jungle
+          </p>
+          <div className="h-[1px] w-20 bg-[#FF007F]/40" />
         </div>
+
+        {/* THE COUNTDOWN COMPONENT */}
+        <Countdown />
 
         {/* ENTER THE JUNGLE HINT */}
         <div className="absolute bottom-12 flex flex-col items-center gap-4 z-10">
