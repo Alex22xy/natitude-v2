@@ -95,12 +95,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SCROLL HINT */}
-      <div className="absolute bottom-6 flex flex-col items-center gap-4 z-10 w-full">
-        <p className="text-[10px] tracking-[0.5em] text-[#FF007F] uppercase font-bold animate-pulse">Enter the Jungle</p>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-[#FF007F] to-transparent" />
-      </div>
-
       {/* SECTION 2: EVENTS */}
       <section id="events" className="min-h-screen py-24 flex flex-col items-center justify-center px-6 bg-black">
         <div className="text-center mb-16">
