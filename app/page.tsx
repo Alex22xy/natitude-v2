@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar';
 import GuestlistForm from '../components/GuestlistForm';
-import COuntdown from '.../components/Countdown';
+import Countdown from '.../components/Countdown';
 
 export default function Home() {
   return (
