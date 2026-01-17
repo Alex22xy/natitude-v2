@@ -1,48 +1,72 @@
 "use client";
+
 import { useState } from 'react';
 
 export default function GuestlistForm() {
-  const [name, setName] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+    };
+
     try {
-      const response = await fetch('/api/register', {
+      const res = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name }),
+        body: JSON.stringify(data),
       });
-      if (response.ok) { setStatus('success'); setName(''); }
-      else { setStatus('error'); }
-    } catch (err) { setStatus('error'); }
+
+      if (res.ok) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
+  if (status === 'success') {
+    return (
+      <div className="text-center p-10 border border-[#FF007F] bg-black">
+        <h3 className="text-[#FF007F] font-black italic text-2xl mb-2 uppercase">Access Granted</h3>
+        <p className="text-zinc-400 text-sm">Check your inbox for the ritual entry code.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full max-w-md bg-zinc-900/50 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
-      {status === 'success' ? (
-        <div className="text-center py-10">
-          <h3 className="text-[#FF007F] text-2xl font-bold uppercase italic mb-2">You're In.</h3>
-          <p className="text-zinc-400 text-sm">Welcome to the Ritual.</p>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <input 
-            required
-            type="text" 
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="ENTRY NAME"
-            className="w-full bg-black border border-white/10 rounded-xl px-4 py-4 text-white focus:border-[#FF007F]/50 outline-none"
-          />
-          <button 
-            className="w-full bg-[#FF007F] text-white font-black uppercase italic py-4 rounded-xl hover:bg-white hover:text-black transition-all"
-          >
-            {status === 'loading' ? 'Processing...' : 'Secure Entry'}
-          </button>
-        </form>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <input
+        name="name"
+        type="text"
+        placeholder="FULL NAME"
+        required
+        className="bg-transparent border border-white/10 p-4 text-white placeholder:text-zinc-700 focus:border-[#FF007F] outline-none transition-all uppercase tracking-widest text-xs"
+      />
+      <input
+        name="email"
+        type="email"
+        placeholder="EMAIL ADDRESS"
+        required
+        className="bg-transparent border border-white/10 p-4 text-white placeholder:text-zinc-700 focus:border-[#FF007F] outline-none transition-all uppercase tracking-widest text-xs"
+      />
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="bg-[#FF007F] text-white font-black italic p-4 uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all disabled:opacity-50"
+      >
+        {status === 'loading' ? 'Processing...' : 'Request Access'}
+      </button>
+      {status === 'error' && (
+        <p className="text-red-500 text-[10px] uppercase text-center mt-2">System Error. Try again.</p>
       )}
-    </div>
+    </form>
   );
 }
