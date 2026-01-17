@@ -71,53 +71,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: THE RITUAL (UPGRADED) */}
-      <section id="events" className="relative h-screen w-full snap-start snap-always flex flex-col items-center justify-center px-6 bg-black overflow-hidden">
-        
-        {/* Background Decorative Text - Large and Faded */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none select-none">
-          <h2 className="text-[25vw] font-black uppercase italic tracking-tighter leading-none">RITUAL</h2>
-        </div>
+      {/* SECTION 2: THE RITUAL (EXPANDED NIGHTCLUB EDITION) */}
+<section id="events" className="relative min-h-screen w-full snap-start snap-always py-20 px-6 bg-black overflow-hidden">
+  
+  <div className="text-center mb-16 relative z-10">
+    <h2 className="text-[#FF007F] text-[10px] tracking-[1em] uppercase mb-4 font-bold">The Protocol</h2>
+    <p className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter text-white">The Ritual</p>
+  </div>
+  
+  {/* BENTO GRID LAYOUT */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto relative z-10">
+    
+    {/* 01: THE VOID (Large Span) */}
+    <div className="md:col-span-2 group relative p-8 bg-zinc-900/30 backdrop-blur-md border border-white/5 rounded-[32px] hover:border-[#FF007F]/40 transition-all duration-500">
+      <div className="flex justify-between items-start mb-12">
+        <h3 className="text-white font-black uppercase italic tracking-widest text-2xl">01 / THE VOID</h3>
+        <div className="w-10 h-10 border border-[#FF007F]/30 rounded-full flex items-center justify-center text-[#FF007F] text-xs">LOC</div>
+      </div>
+      <p className="text-zinc-500 text-sm uppercase tracking-widest leading-relaxed group-hover:text-zinc-300">
+        Coordinates are released via encrypted channel exactly 120 minutes prior to the pulse. Access is granted only to confirmed IDs.
+      </p>
+    </div>
 
-        <div className="text-center mb-10 relative z-10">
-          <h2 className="text-[#FF007F] text-[10px] tracking-[1em] uppercase mb-4 font-bold animate-pulse">The Guidelines</h2>
-          <p className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter text-white">The Experience</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full relative z-10">
-          
-          {/* CARD 01: THE VOID */}
-          <div className="group relative p-10 bg-zinc-900/30 backdrop-blur-md border border-white/5 rounded-[40px] hover:border-[#FF007F]/40 transition-all duration-700 hover:-translate-y-2">
-            <div className="absolute top-8 right-10 text-[#FF007F]/10 group-hover:text-[#FF007F]/30 transition-colors font-black italic text-5xl">01</div>
-            <h3 className="text-white font-black uppercase italic mb-4 tracking-widest text-2xl group-hover:text-[#FF007F] transition-colors">The Void</h3>
-            <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-300 transition-colors uppercase tracking-widest">
-              A precise coordinate will be dropped 120 minutes before the pulse begins. Exclusive to confirmed tribe members.
-            </p>
-            <div className="mt-8 h-[2px] w-0 group-hover:w-full bg-gradient-to-r from-[#FF007F] to-transparent transition-all duration-1000" />
-          </div>
+    {/* 02: THE SKIN */}
+    <div className="group relative p-8 bg-zinc-900/40 border border-[#FF007F]/30 rounded-[32px] shadow-[0_0_30px_rgba(255,0,127,0.05)]">
+       <h3 className="text-[#FF007F] font-black uppercase italic tracking-widest text-xl mb-4 text-right">02 / SKIN</h3>
+       <p className="text-zinc-400 text-[11px] uppercase tracking-widest leading-loose">
+        Dark. Tactical. Minimal. No logos. We leave identities at the door to become the shadow.
+      </p>
+    </div>
 
-          {/* CARD 02: THE SKIN */}
-          <div className="group relative p-10 bg-zinc-900/40 backdrop-blur-md border border-[#FF007F]/30 rounded-[40px] shadow-[0_0_50px_rgba(255,0,127,0.1)] transition-all duration-700 md:scale-105 z-20">
-            <div className="absolute top-8 right-10 text-[#FF007F]/20 font-black italic text-5xl">02</div>
-            <h3 className="text-[#FF007F] font-black uppercase italic mb-4 tracking-widest text-2xl shadow-sm">The Skin</h3>
-            <p className="text-zinc-300 text-xs leading-relaxed uppercase tracking-widest">
-              All black. Tactical. Minimalist. No logos. We leave our identities at the door to become one with the rhythm.
-            </p>
-            <div className="mt-8 h-[2px] w-full bg-[#FF007F] opacity-50 shadow-[0_0_10px_#FF007F]" />
-          </div>
+    {/* 03: THE SILENCE */}
+    <div className="group relative p-8 bg-zinc-900/30 border border-white/5 rounded-[32px] hover:border-[#FF007F]/40 transition-all">
+       <h3 className="text-white font-black uppercase italic tracking-widest text-xl mb-4">03 / SILENCE</h3>
+       <p className="text-zinc-500 text-[11px] uppercase tracking-widest leading-loose group-hover:text-zinc-300">
+        Strict no-phone policy. Flash photography is a violation of the tribe. Capture the feeling, not the footage.
+      </p>
+    </div>
 
-          {/* CARD 03: THE SILENCE */}
-          <div className="group relative p-10 bg-zinc-900/30 backdrop-blur-md border border-white/5 rounded-[40px] hover:border-[#FF007F]/40 transition-all duration-700 hover:-translate-y-2">
-            <div className="absolute top-8 right-10 text-[#FF007F]/10 group-hover:text-[#FF007F]/30 transition-colors font-black italic text-5xl">03</div>
-            <h3 className="text-white font-black uppercase italic mb-4 tracking-widest text-2xl group-hover:text-[#FF007F] transition-colors">The Silence</h3>
-            <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-300 transition-colors uppercase tracking-widest">
-              Disconnect to reconnect. A strict no-phone policy is enforced. Capture the feeling, not the footage.
-            </p>
-            <div className="mt-8 h-[2px] w-0 group-hover:w-full bg-gradient-to-r from-[#FF007F] to-transparent transition-all duration-1000" />
-          </div>
+    {/* 04: THE PULSE (The Music) */}
+    <div className="group relative p-8 bg-zinc-900/30 border border-white/5 rounded-[32px] hover:border-[#FF007F]/40 transition-all">
+       <h3 className="text-white font-black uppercase italic tracking-widest text-xl mb-4">04 / PULSE</h3>
+       <p className="text-zinc-500 text-[11px] uppercase tracking-widest leading-loose group-hover:text-zinc-300">
+        135-145 BPM. Industrial. Deep Techno. Hypnotic rhythms for a transcendental state.
+      </p>
+    </div>
 
-        </div>
-      </section>
+    {/* 05: THE EXIT */}
+    <div className="group relative p-8 bg-zinc-900/30 border border-white/5 rounded-[32px] hover:border-[#FF007F]/40 transition-all">
+       <h3 className="text-white font-black uppercase italic tracking-widest text-xl mb-4">05 / EXIT</h3>
+       <p className="text-zinc-500 text-[11px] uppercase tracking-widest leading-loose group-hover:text-zinc-300">
+        No re-entry. Once you depart the sanctuary, your session is terminated.
+      </p>
+    </div>
+
+  </div>
+</section>
 
       {/* SECTION 3: THE LIST (JOIN) */}
       <section id="join" className="relative h-screen w-full snap-start snap-always flex flex-col items-center justify-center px-6 bg-black">
