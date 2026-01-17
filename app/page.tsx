@@ -7,29 +7,37 @@ export default function Home() {
     <main className="relative bg-black text-white selection:bg-[#FF007F] selection:text-white">
       <Navbar />
 
-      {/* SECTION 1: HOME */}
-      <section id="home" className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
-        {/* PINK GLOW EFFECT */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FF007F]/10 rounded-full blur-[120px] pointer-events-none" />
+      {/* SECTION 1: HOME (HERO) */}
+      <section id="home" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
+        
+        {/* THE "JUNGLE" AMBIANCE: Soft pink glow behind the logo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF007F]/15 rounded-full blur-[120px] pointer-events-none animate-pulse" />
 
         <div className="relative z-10 flex flex-col items-center">
-          {/* Main Title in Pink with Glow */}
-          <h1 className="text-[#FF007F] text-7xl md:text-9xl font-black uppercase italic tracking-[-0.05em] leading-none drop-shadow-[0_0_20px_rgba(255,0,127,0.4)]">
-            Natitude
-          </h1>
           
-          <div className="flex items-center gap-4 mt-6">
-            <div className="h-[1px] w-8 bg-zinc-700" />
-            <p className="text-zinc-400 tracking-[0.4em] uppercase text-[10px] md:text-xs font-medium">
-              The Saturday Ritual
+          {/* THE LOGO: Using the transparent PNG */}
+          <div className="relative group">
+            <img 
+              src="/logo.png" 
+              alt="Natitude Welcome to the Jungle" 
+              className="w-72 md:w-[500px] h-auto object-contain drop-shadow-[0_0_35px_rgba(255,0,127,0.4)] transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+          
+          {/* LOGO SUBTEXT: Reinforcing the "Jungle" branding */}
+          <div className="flex items-center gap-6 mt-4">
+            <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#FF007F]/40" />
+            <p className="text-[#FF007F] tracking-[0.8em] uppercase text-[10px] md:text-xs font-light opacity-80">
+              Est. 2024
             </p>
-            <div className="h-[1px] w-8 bg-zinc-700" />
+            <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#FF007F]/40" />
           </div>
         </div>
 
-        {/* Scroll Indicator changed to Pink gradient */}
-        <div className="absolute bottom-32 flex flex-col items-center gap-2 animate-bounce opacity-50">
-          <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-[#FF007F]" />
+        {/* SCROLL HINT */}
+        <div className="absolute bottom-12 flex flex-col items-center gap-4">
+           <p className="text-[10px] tracking-[0.4em] text-zinc-600 uppercase font-bold">Enter the Jungle</p>
+           <div className="w-[1px] h-16 bg-gradient-to-b from-[#FF007F] to-transparent" />
         </div>
       </section>
 
