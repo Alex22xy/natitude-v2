@@ -58,7 +58,36 @@ export default function Home() {
           {/* THE LIVE COUNTDOWN */}
           <Countdown />
         </div>
+        {/* SECTION 1.5: THE ARCHIVE (GALLERY) */}
+      <section id="archive" className="py-24 bg-black overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Header for the Gallery */}
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <div>
+              <h2 className="text-[#FF007F] text-sm tracking-[0.5em] uppercase mb-2">The Archive</h2>
+              <p className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-none">Flash Moments</p>
+            </div>
+            <p className="text-zinc-500 text-xs italic max-w-[200px] text-right">No cameras allowed inside. These are the only traces left behind.</p>
+          </div>
 
+          {/* The Masonry Grid */}
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="relative group overflow-hidden rounded-2xl bg-zinc-900 border border-white/5">
+                <img 
+                  src={`/gallery-${i}.jpg`} 
+                  alt="Natitude Jungle Vibe" 
+                  className="w-full grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                   <span className="text-[#FF007F] font-mono text-[10px] tracking-widest uppercase">Ritual_00{i}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
         {/* SCROLL INDICATOR */}
         <div className="absolute bottom-12 flex flex-col items-center gap-4 z-10 opacity-60">
            <p className="text-[10px] tracking-[0.4em] text-[#FF007F] uppercase font-bold animate-pulse">Enter the Jungle</p>
