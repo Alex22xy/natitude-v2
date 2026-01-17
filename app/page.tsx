@@ -4,19 +4,10 @@ import dynamic from 'next/dynamic';
 import Navbar from '../components/Navbar';
 import GuestlistForm from '../components/GuestlistForm';
 
-const Countdown = dynamic(() => import('../components/Countdown'), { 
-  ssr: false,
-  loading: () => <div className="h-24" /> 
-});
-
 export default function Home() {
   return (
-    /* Snap-y and snap-mandatory make the website feel like an app.
-       When you scroll, it "clicks" to the next section automatically.
-    */
     <main className="h-screen overflow-y-scroll snap-y snap-mandatory bg-black text-white selection:bg-[#FF007F] selection:text-white scroll-smooth">
       
-      {/* This Navbar should be your floating bottom dock component */}
       <Navbar />
 
       {/* SECTION 1: THE VIBE (HERO) */}
@@ -46,7 +37,7 @@ export default function Home() {
             className="w-72 md:w-[500px] h-auto drop-shadow-[0_0_30px_rgba(255,0,127,0.4)] mb-4"
           />
           
-          <div className="flex items-center gap-6 mb-8">
+          <div className="flex items-center gap-6 mb-12">
             <div className="h-[1px] w-16 bg-[#FF007F]/40" />
             <p className="text-white tracking-[0.8em] uppercase text-[10px] md:text-xs font-light text-center">
               Welcome to the Jungle
@@ -54,7 +45,23 @@ export default function Home() {
             <div className="h-[1px] w-16 bg-[#FF007F]/40" />
           </div>
 
-          <Countdown />
+          {/* REPLACED CLOCK WITH DYNAMIC STATUS BAR */}
+          <div className="flex flex-col items-center gap-5">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-[#FF007F] animate-pulse shadow-[0_0_10px_#FF007F]" />
+              <p className="text-[#FF007F] text-[10px] tracking-[0.4em] font-black uppercase italic">
+                Ritual Status: Active
+              </p>
+            </div>
+            
+            <div className="w-48 md:w-64 h-[2px] bg-white/10 relative overflow-hidden rounded-full">
+              <div className="absolute top-0 left-0 h-full bg-[#FF007F] w-[82%] shadow-[0_0_15px_#FF007F] animate-pulse" />
+            </div>
+            
+            <p className="text-zinc-500 text-[9px] tracking-[0.3em] uppercase italic font-bold">
+              Capacity: 82% Full / Invitations Only
+            </p>
+          </div>
         </div>
 
         {/* SCROLL HINT */}
@@ -74,30 +81,29 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
           <div className="p-8 border border-white/5 bg-zinc-950/50 rounded-2xl hover:border-[#FF007F]/30 transition-all group">
             <h3 className="text-[#FF007F] font-bold mb-3 uppercase italic text-sm">01 / Location</h3>
-            <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-300">A hidden sanctuary. Revealed to confirmed guests only via encrypted message.</p>
+            <p className="text-zinc-500 text-[11px] leading-relaxed group-hover:text-zinc-300">A hidden sanctuary. Revealed to confirmed guests only via encrypted message.</p>
           </div>
           <div className="p-8 border border-[#FF007F]/20 bg-zinc-950/50 rounded-2xl shadow-[0_0_40px_rgba(255,0,127,0.05)]">
             <h3 className="text-[#FF007F] font-bold mb-3 uppercase italic text-sm">02 / Timing</h3>
-            <p className="text-zinc-500 text-xs leading-relaxed">Doors open at 22:00. The pulse begins at midnight. No re-entry allowed.</p>
+            <p className="text-zinc-500 text-[11px] leading-relaxed">Doors open at 22:00. The pulse begins at midnight. No re-entry allowed.</p>
           </div>
           <div className="p-8 border border-white/5 bg-zinc-950/50 rounded-2xl hover:border-[#FF007F]/30 transition-all group">
             <h3 className="text-[#FF007F] font-bold mb-3 uppercase italic text-sm">03 / Code</h3>
-            <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-300">Dark. Minimalist. Jungle-ready. Respect the rhythm, respect the tribe.</p>
+            <p className="text-zinc-500 text-[11px] leading-relaxed group-hover:text-zinc-300">Dark. Minimalist. Jungle-ready. Respect the rhythm, respect the tribe.</p>
           </div>
         </div>
       </section>
 
-     {/* SECTION 3: THE LIST (JOIN) */}
+      {/* SECTION 3: THE LIST (JOIN) */}
       <section id="join" className="relative h-screen w-full snap-start snap-always flex flex-col items-center justify-center px-6 bg-black">
         <div className="text-center mb-10">
           <h2 className="text-[#FF007F] text-xs tracking-[0.5em] uppercase mb-4">The List</h2>
           <p className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter text-white">Join the Tribe</p>
         </div>
-        <div className="w-full max-w-md pb-32"> {/* Increased padding to clear the dock */}
+        <div className="w-full max-w-md pb-32">
           <GuestlistForm />
         </div>
 
-        {/* FOOTER - Tucked inside the last section for cleaner look */}
         <footer className="absolute bottom-4 w-full text-center">
           <p className="text-[8px] text-zinc-700 tracking-[1em] uppercase">Natitude &copy; 2026</p>
         </footer>
