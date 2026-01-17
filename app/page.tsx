@@ -59,7 +59,7 @@ export default function Home() {
           <Countdown />
         </div>
         {/* SECTION 1.5: THE ARCHIVE (GALLERY) */}
-      <section id="archive" className="py-24 bg-black overflow-hidden">
+      <section id="archive" className="relative py-32 bg-black overflow-hidden border-t border-white/5 mt-20">
         <div className="max-w-7xl mx-auto px-6">
           {/* Header for the Gallery */}
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
@@ -87,13 +87,19 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-        {/* SCROLL INDICATOR */}
+
+      {/* SCROLL INDICATOR */}
         <div className="absolute bottom-12 flex flex-col items-center gap-4 z-10 opacity-60">
            <p className="text-[10px] tracking-[0.4em] text-[#FF007F] uppercase font-bold animate-pulse">Enter the Jungle</p>
            <div className="w-[1px] h-16 bg-gradient-to-b from-[#FF007F] to-transparent" />
         </div>
       </section>
+
+      {/* SCROLL HINT */}
+      <div className="absolute bottom-6 flex flex-col items-center gap-4 z-10 w-full">
+        <p className="text-[10px] tracking-[0.5em] text-[#FF007F] uppercase font-bold animate-pulse">Enter the Jungle</p>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-[#FF007F] to-transparent" />
+      </div>
 
       {/* SECTION 2: EVENTS */}
       <section id="events" className="min-h-screen py-24 flex flex-col items-center justify-center px-6 bg-black">
