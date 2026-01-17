@@ -74,28 +74,48 @@ export default function Home() {
       {/* SECTION 2: THE RITUAL (UPGRADED) */}
       <section id="events" className="relative h-screen w-full snap-start snap-always flex flex-col items-center justify-center px-6 bg-black overflow-hidden">
         
-        {/* Faded background text for depth */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/[0.02] uppercase italic pointer-events-none select-none">
+        {/* Background Decorative Text */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] font-black text-white/[0.01] uppercase italic pointer-events-none select-none">
           Ritual
         </div>
 
-        <div className="text-center mb-16 relative z-10">
-          <h2 className="text-[#FF007F] text-xs tracking-[0.8em] uppercase mb-4 animate-pulse">The Guidelines</h2>
-          <p className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter text-white">The Experience</p>
+        <div className="text-center mb-12 relative z-10">
+          <h2 className="text-[#FF007F] text-xs tracking-[0.8em] uppercase mb-4 font-bold">The Guidelines</h2>
+          <p className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter text-white">The Experience</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl w-full relative z-10">
-          {/* CARD 1 */}
-          <div className="group relative p-8 bg-zinc-950/40 border border-white/5 rounded-3xl overflow-hidden hover:border-[#FF007F]/50 transition-all duration-500">
-            <div className="absolute top-0 right-0 p-4 text-[#FF007F]/20 group-hover:text-[#FF007F] transition-colors font-black italic">01</div>
-            <h3 className="text-white font-black uppercase italic mb-2 tracking-widest">The Void</h3>
-            <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-200 transition-colors">
-              The coordinate is a secret. Confirmed tribe members receive a digital key via encrypted channel 120 minutes prior.
+          
+          {/* CARD 01: THE VOID */}
+          <div className="group relative p-8 bg-zinc-900/20 backdrop-blur-sm border border-white/5 rounded-3xl hover:border-[#FF007F]/40 transition-all duration-500">
+            <div className="absolute top-6 right-8 text-[#FF007F]/10 group-hover:text-[#FF007F]/40 transition-colors font-black italic text-4xl">01</div>
+            <h3 className="text-white font-black uppercase italic mb-4 tracking-widest text-xl">The Void</h3>
+            <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-300 transition-colors">
+              A precise coordinate will be dropped 120 minutes before the pulse begins. Exclusive to confirmed tribe members.
             </p>
-            <div className="mt-4 h-[1px] w-0 group-hover:w-full bg-[#FF007F] transition-all duration-700" />
+            <div className="mt-6 h-[1px] w-0 group-hover:w-full bg-gradient-to-r from-[#FF007F] to-transparent transition-all duration-700" />
           </div>
 
-          {/* Repeat for Card 2 and 3 with different text... */}
+          {/* CARD 02: THE SKIN */}
+          <div className="group relative p-8 bg-zinc-900/20 backdrop-blur-sm border border-[#FF007F]/20 rounded-3xl shadow-[0_0_40px_rgba(255,0,127,0.05)] transition-all duration-500">
+            <div className="absolute top-6 right-8 text-[#FF007F]/20 transition-colors font-black italic text-4xl">02</div>
+            <h3 className="text-[#FF007F] font-black uppercase italic mb-4 tracking-widest text-xl">The Skin</h3>
+            <p className="text-zinc-300 text-xs leading-relaxed">
+              All black. Tactical. Minimalist. No logos. We leave our identities at the door to become one with the rhythm.
+            </p>
+            <div className="mt-6 h-[1px] w-full bg-[#FF007F] opacity-50" />
+          </div>
+
+          {/* CARD 03: THE SILENCE */}
+          <div className="group relative p-8 bg-zinc-900/20 backdrop-blur-sm border border-white/5 rounded-3xl hover:border-[#FF007F]/40 transition-all duration-500">
+            <div className="absolute top-6 right-8 text-[#FF007F]/10 group-hover:text-[#FF007F]/40 transition-colors font-black italic text-4xl">03</div>
+            <h3 className="text-white font-black uppercase italic mb-4 tracking-widest text-xl">The Silence</h3>
+            <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-300 transition-colors">
+              Disconnect to reconnect. A strict no-phone policy is enforced. Capture the feeling, not the footage.
+            </p>
+            <div className="mt-6 h-[1px] w-0 group-hover:w-full bg-gradient-to-r from-[#FF007F] to-transparent transition-all duration-700" />
+          </div>
+
         </div>
       </section>
 
